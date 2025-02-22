@@ -31,11 +31,9 @@ body {
   background: linear-gradient(
     to right, 
     #000000 0%,       /* Black at the edges */
-    #7e3b31 20%,      /* Very dark brown to soften transition */
-    #6c441a 30%,
+    #321c04 15%,
     #3E2723 50%,      /* Dark coffee brown as the main color */
-    #6c441a 70%,
-    #7e3b31 80%,      /* Back to very dark brown */
+    #321c04 85%,
     #000000 100%      /* Black on the far right */
   );
   color: var(--text-primary);
