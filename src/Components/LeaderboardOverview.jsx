@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
-import { FaSync } from "react-icons/fa"; 
+import { FaSync } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
-const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=0&output=csv";
+const GOOGLE_SHEET_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=0&output=csv";
 
 const LeaderboardOverview = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -61,26 +63,28 @@ const LeaderboardOverview = () => {
   };
 
   const getMedalEmoji = (place) => {
-    if (place === 1) return "🥇"; 
-    if (place === 2) return "🥈"; 
-    if (place === 3) return "🥉"; 
-    return `#${place}`; 
+    if (place === 1) return "🥇";
+    if (place === 2) return "🥈";
+    if (place === 3) return "🥉";
+    return `#${place}`;
   };
 
   return (
-    <div 
-      className="bg-bg-dark p-4 rounded-md h-full overflow-hidden relative border-4 border-btn-primary mx-4 md:mx-8" 
-      id="leaderboard"
-    >
+    <motion.div
+  className="bg-bg-dark p-4 rounded-md max-h-[70vh] max-w-[50%] overflow-hidden relative border-4 border-btn-primary mx-auto"
+  id="leaderboard"
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.5, ease: "easeInOut" }}
+>
       <div className="flex items-center justify-between mb-4">
-        
-        {/* Title */}
         <h3 className="text-2xl font-bold flex items-center space-x-2">
-          <span role="img" aria-label="bow-and-arrow">🏹</span>
+          <span role="img" aria-label="bow-and-arrow">
+            🏹
+          </span>
           <span>Best Hunters Leaderboard</span>
         </h3>
 
-        {/* Centered Search Bar with Fixed Width */}
         <div className="flex justify-center items-center">
           <input
             type="text"
@@ -91,9 +95,8 @@ const LeaderboardOverview = () => {
           />
         </div>
 
-        {/* Refresh Button */}
-        <button 
-          onClick={fetchLeaderboardData} 
+        <button
+          onClick={fetchLeaderboardData}
           className="text-btn-primary hover:text-white transition-colors cursor-pointer"
           title="Refresh Leaderboard"
           disabled={isLoading}
@@ -101,9 +104,9 @@ const LeaderboardOverview = () => {
           <FaSync className={`text-2xl ${isLoading ? "animate-spin" : ""}`} />
         </button>
       </div>
-      
+
       {filteredData.length > 0 ? (
-        <div className="overflow-y-auto max-h-[60vh] border-t border-btn-primary">
+        <div className="overflow-y-auto max-h-[50vh] border-t border-btn-primary">
           <table className="w-full border-collapse min-w-[400px]">
             <thead className="sticky top-0 bg-bg-dark z-10">
               <tr className="text-left">
@@ -113,28 +116,39 @@ const LeaderboardOverview = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredData.map((row) => {
-                const actualPlace = leaderboardData.findIndex(
-                  (data) => data.Hunter === row.Hunter
-                ) + 1;
+              <AnimatePresence>
+                {filteredData.map((row, index) => {
+                  const actualPlace =
+                    leaderboardData.findIndex(
+                      (data) => data.Hunter === row.Hunter
+                    ) + 1;
 
-                return (
-                  <tr key={row.Hunter} className="hover:bg-bg-medium">
-                    <td className="p-2">
-                      {getMedalEmoji(actualPlace)}
-                    </td>
-                    <td className="p-2">{row.Hunter}</td>
-                    <td className="p-2">{row.Points}</td>
-                  </tr>
-                );
-              })}
+                  return (
+                    <motion.tr
+                      key={row.Hunter}
+                      className="hover:bg-bg-medium"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <td className="p-2">{getMedalEmoji(actualPlace)}</td>
+                      <td className="p-2">{row.Hunter}</td>
+                      <td className="p-2">{row.Points}</td>
+                    </motion.tr>
+                  );
+                })}
+              </AnimatePresence>
             </tbody>
           </table>
         </div>
       ) : (
         <p>No hunters found...</p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

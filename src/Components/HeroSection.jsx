@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; 
 import Logo from "../assets/images/logo_bountypub.png"; 
 import { FaArrowDown } from "react-icons/fa"; 
 
@@ -10,52 +11,106 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col items-center justify-center h-screen bg-bg-dark text-text-primary px-4">
       <div className="text-center max-w-4xl">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          Welcome Travelers to the <span className="inline-flex items-center">
-          🍻 <span className="px-2">Bounty Pub</span> 🍻
+        
+        {/* Animated Heading */}
+        <motion.h1 
+          className="text-3xl md:text-5xl font-bold mb-4"
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          Welcome Travelers to the 
+          <span className="inline-flex items-center">
+            🍻 <span className="px-2">Bounty Pub</span> 🍻
           </span>
-        </h1>
-        <p className="text-lg md:text-xl mb-6">
+        </motion.h1>
+
+        {/* Animated Subheading */}
+        <motion.p 
+          className="text-lg md:text-xl mb-6"
+          initial={{ x: 200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        >
           Join the challenge runs, conquer bounties, and make your mark!
-        </p>
-        <div className="flex justify-center mb-8">
-          <img
+        </motion.p>
+
+        {/* Animated Logo with Pulsating Effect */}
+        <motion.div 
+          className="flex justify-center mb-8"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+        >
+          <motion.img
             src={Logo}
             alt="Bounty Pub"
             className="w-full max-w-md"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
           />
-        </div>
-        <p className="text-2xl mb-4">Enter</p>
-        <div className="flex justify-center animate-bounce mb-6">
-          <FaArrowDown className="text-4xl text-btn-primary" />
-        </div>
+        </motion.div>
 
-        {/* Navigation Buttons with Adjusted Sizes */}
-        <div className="flex justify-center space-x-6 mt-6">
-          {/* Smaller Leaderboard Button */}
-          <button
+        {/* Animated Enter Text */}
+        <motion.p 
+          className="text-2xl mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          Enter
+        </motion.p>
+
+        {/* Bouncing Arrow */}
+        <motion.div 
+          className="flex justify-center mb-6"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+        >
+          <FaArrowDown className="text-4xl text-btn-primary" />
+        </motion.div>
+
+        {/* Animated Buttons with Staggered Appearance */}
+        <motion.div 
+          className="flex justify-center space-x-6 mt-6"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                delayChildren: 0.8,
+                staggerChildren: 0.2
+              }
+            }
+          }}
+        >
+          <motion.button
             className="btn btn-small"
             onClick={() => document.getElementById('leaderboard').scrollIntoView({ behavior: 'smooth' })}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
             Leaderboard
-          </button>
+          </motion.button>
 
-          {/* Bounty Board Button (Main Focus) */}
-          <button
+          <motion.button
             className="btn btn-large"
             onClick={() => document.getElementById('bounty-board').scrollIntoView({ behavior: 'smooth' })}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
             Bounty Board
-          </button>
+          </motion.button>
 
-          {/* Join The Pub Button (Opens Discord Link) */}
-          <button
+          <motion.button
             className="btn btn-small"
             onClick={handleJoinPubClick}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
             Join The Pub!
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
+
       </div>
     </section>
   );
