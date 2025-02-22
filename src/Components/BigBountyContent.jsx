@@ -1,4 +1,5 @@
 import React from "react";
+import LeaderboardsBigBounty from "./LeaderboardsBigBounty";
 
 const BigBountyContent = () => {
   return (
@@ -62,7 +63,7 @@ const BigBountyContent = () => {
           }}
         >
           <h3 className="text-2xl font-bold mb-2">Leaderboard</h3>
-          <p>(Leaderboard for the Big Bounty will appear here)</p>
+          <LeaderboardsBigBounty />
         </div>
       </div>
     </div>
