@@ -3,6 +3,10 @@ import Logo from "../assets/images/logo_bountypub.png";
 import { FaArrowDown } from "react-icons/fa"; 
 
 const HeroSection = () => {
+  const handleJoinPubClick = () => {
+    window.open("https://discord.gg/45wubE8bBH", "_blank");
+  };
+
   return (
     <section className="flex flex-col items-center justify-center h-screen bg-bg-dark text-text-primary px-4">
       <div className="text-center max-w-4xl">
@@ -44,10 +48,10 @@ const HeroSection = () => {
             Bounty Board
           </button>
 
-          {/* Smaller Join The Pub Button */}
+          {/* Join The Pub Button (Opens Discord Link) */}
           <button
             className="btn btn-small"
-            onClick={() => document.getElementById('join-the-pub').scrollIntoView({ behavior: 'smooth' })}
+            onClick={handleJoinPubClick}
           >
             Join The Pub!
           </button>
