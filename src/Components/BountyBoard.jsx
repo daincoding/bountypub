@@ -23,7 +23,7 @@ const BountyBoard = () => {
   return (
     <section
       id="bounty-board"
-      className="flex flex-col items-center min-h-screen bg-bg-dark text-text-primary px-4 pt-10"
+      className="flex flex-col items-center min-h-screen bg-bg-dark text-text-primary px-4 pt-30"
     >
       {/* Title at the Top */}
       <h2 className="text-4xl md:text-6xl font-bold mb-8 flex items-center space-x-4">
