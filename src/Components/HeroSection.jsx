@@ -26,17 +26,17 @@ const HeroSection = () => {
           <FaArrowDown className="text-4xl text-btn-primary" />
         </div>
 
-        {/* Navigation Buttons with Global Styles */}
+        {/* Navigation Buttons with Adjusted Sizes */}
         <div className="flex justify-center space-x-6 mt-6">
-          {/* Leaderboard Button */}
+          {/* Smaller Leaderboard Button */}
           <button
-            className="btn"
+            className="btn btn-small"
             onClick={() => document.getElementById('leaderboard').scrollIntoView({ behavior: 'smooth' })}
           >
             Leaderboard
           </button>
 
-          {/* Bounty Board Button (Slightly Larger) */}
+          {/* Bounty Board Button (Main Focus) */}
           <button
             className="btn btn-large"
             onClick={() => document.getElementById('bounty-board').scrollIntoView({ behavior: 'smooth' })}
@@ -44,9 +44,9 @@ const HeroSection = () => {
             Bounty Board
           </button>
 
-          {/* Join The Pub Button */}
+          {/* Smaller Join The Pub Button */}
           <button
-            className="btn"
+            className="btn btn-small"
             onClick={() => document.getElementById('join-the-pub').scrollIntoView({ behavior: 'smooth' })}
           >
             Join The Pub!

@@ -31,11 +31,11 @@
 body {
   background: linear-gradient(
     to right, 
-    #000000 0%,       /* Black at the edges */
+    #693511 0%,       /* Black at the edges */
     #321c04 15%,
     #3E2723 50%,      /* Dark coffee brown as the main color */
     #321c04 85%,
-    #000000 100%      /* Black on the far right */
+    #693511 100%      /* Black on the far right */
   );
   color: var(--text-primary);
   min-height: 100vh;
@@ -44,23 +44,31 @@ body {
   overflow-x: hidden;
 }
 
+/* Button Base Style */
 .btn {
   border: 2px solid var(--btn-primary);
   color: var(--text-primary);
   background-color: transparent;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 1rem;
   transition: all 0.2s;
   cursor: pointer;
 }
 
+/* Smaller Button */
+.btn-small {
+  padding: 6px 12px;
+  font-size: 0.875rem; /* Slightly smaller text */
+}
+
+/* Main Button (Bounty Board) */
 .btn-large {
   padding: 12px 24px;
   font-size: 1.25rem;
   font-weight: bold;
 }
 
+/* Hover Effect */
 .btn:hover {
   background-color: var(--btn-primary);
   transform: scale(1.05);
