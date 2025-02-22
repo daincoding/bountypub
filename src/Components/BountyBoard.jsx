@@ -13,6 +13,13 @@ const BountyBoard = () => {
     window.open("https://discord.gg/45wubE8bBH", "_blank");
   };
 
+  // Determine the currently selected bounty text
+  const getActiveBountyText = () => {
+    if (activeSection === "big-bounty") return "Big Bounty: 1 Shot Bosses";
+    if (activeSection === "small-bounty") return "Small Bounty: Starting Class Only Permadeath";
+    return "No Bounty Selected";
+  };
+
   return (
     <section
       id="bounty-board"
@@ -26,7 +33,7 @@ const BountyBoard = () => {
       </h2>
 
       {/* Navigation Buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mb-16">
+      <div className="flex flex-wrap justify-center gap-4 mb-8">
         <BigBountyButton
           label="Big Bounty: 1 Shot Bosses"
           onClick={() => setActiveSection("big-bounty")}
@@ -39,6 +46,11 @@ const BountyBoard = () => {
           label="Past Bounties & Rules: Join The Pub!"
           onClick={handleJoinPubClick}
         />
+      </div>
+
+      {/* Display Selected Bounty */}
+      <div className="mb-2 text-2xl md:text-3xl font-semibold text-btn-primary">
+        {getActiveBountyText()}
       </div>
 
       {/* Animated Arrow and "CHOOSE A BOUNTY" Message */}
@@ -54,7 +66,7 @@ const BountyBoard = () => {
       )}
 
       {/* Display Content Based on Active Section */}
-      <div className="w-full max-w-6xl mt-10">
+      <div className="w-full max-w-6xl mt-5">
         {activeSection === "big-bounty" && <BigBountyContent />}
         {activeSection === "small-bounty" && <SmallBountyContent />}
       </div>

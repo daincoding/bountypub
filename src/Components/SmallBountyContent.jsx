@@ -1,18 +1,70 @@
 import React from "react";
+import LeaderboardsSmallBounty from "./LeaderboardsSmallBounty";
 
 const SmallBountyContent = () => {
   return (
     <div className="flex flex-wrap md:flex-nowrap w-full h-full p-4 gap-4">
-      {/* Rules Box (30%) */}
-      <div className="w-full md:w-1/3 bg-bg-medium p-4 rounded-lg shadow-md">
-        <h3 className="text-2xl font-bold mb-2">Rules</h3>
-        <p>(Rules for the Small Bounty go here)</p>
+      
+      {/* Rules Box (40%) */}
+      <div className="w-full md:w-2/5 p-0 rounded-lg shadow-md border-4 border-btn-primary max-h-[60vh]">
+        <div 
+          className="p-4 h-full flex flex-col justify-between rounded-md" 
+          style={{ 
+            backgroundColor: 'var(--bg-dark)', 
+            height: '100%', 
+            boxSizing: 'border-box' 
+          }}
+        >
+          
+          {/* Scrollable Rules Content */}
+          <div className="overflow-y-auto flex-grow mb-4 pr-2">
+          <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
+          <p className="mb-4">Kill all 32 Limgrave bosses without dying using only your starting class equipment! see rules below.</p>
+
+            <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
+            <ul className="space-y-2">
+              <li>📆 You will have 2 weeks to complete the bounties</li>
+              <li>📫 Submissions are due Saturday, 1. March 2025 at 18:00 for the top 3 ranking</li>
+              <li>❓ If you have any questions, please let us know</li>
+              <li>👀 Don't let your guard down, Onze might be just around the corner</li>
+            </ul>
+          </div>
+
+          {/* Action Buttons with Links */}
+          <div className="flex flex-col space-y-2">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfDUS_wvq7nRTArGcsIwH2bb9m3FNX1g4ZOOzAW2DW-IHt1LA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn bg-btn-primary text-center py-2 rounded-lg text-white"
+            >
+              Rules & Submission
+            </a>
+            <a
+              href="https://discord.gg/45wubE8bBH"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn bg-btn-hover text-center py-2 rounded-lg text-white"
+            >
+              Join the Pub Discussion
+            </a>
+          </div>
+        </div>
       </div>
 
-      {/* Leaderboard Box (70%) */}
-      <div className="w-full md:w-2/3 bg-bg-light p-4 rounded-lg shadow-md">
-        <h3 className="text-2xl font-bold mb-2">Leaderboard</h3>
-        <p>(Leaderboard for the Small Bounty will appear here)</p>
+      {/* Leaderboard Box (60%) */}
+      <div className="w-full md:w-3/5 p-0 rounded-lg shadow-md border-4 border-btn-primary max-h-[60vh]">
+        <div 
+          className="p-4 h-full flex flex-col justify-center rounded-md" 
+          style={{ 
+            backgroundColor: 'var(--bg-medium)', 
+            height: '100%', 
+            boxSizing: 'border-box' 
+          }}
+        >
+          <h3 className="text-2xl font-bold mb-2">Hunterboard</h3>
+          <LeaderboardsSmallBounty />
+        </div>
       </div>
     </div>
   );
