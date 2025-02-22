@@ -9,14 +9,8 @@ const LeaderboardsBigBounty = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    // Fetch only on initial load
     fetchLeaderboardData();
-
-    // Auto-refresh every 60 seconds
-    const interval = setInterval(() => {
-      fetchLeaderboardData();
-    }, 60000); // 60000 ms = 1 minute
-
-    return () => clearInterval(interval);
   }, []);
 
   const fetchLeaderboardData = async () => {
@@ -70,7 +64,7 @@ const LeaderboardsBigBounty = () => {
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-2xl font-bold">Big Bounty Leaderboard</h3>
 
-        {/* Refresh Button */}
+        {/* Manual Refresh Button */}
         <button 
           onClick={fetchLeaderboardData} 
           className="text-btn-primary hover:text-white transition-colors"

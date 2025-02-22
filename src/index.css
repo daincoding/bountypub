@@ -1,47 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 @import "tailwindcss";
 
 :root {
   font-family: 'Cinzel', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
 
-  /* Primary Colors */
-  --bg-dark: #3E2723; /* Dark Coffee Brown */
-  --bg-medium: #795548; /* Medium Brown */
-  --bg-light: #D7CCC8; /* Creamy Beige */
+  /* Background Colors */
+  --bg-dark: #2A1E12; /* Dark wood-like brown */
+  --bg-medium: #3E2F20; /* Medium aged wood */
+  --bg-light: #5A4532; /* Lighter wood tone */
 
   /* Text Colors */
-  --text-primary: #FFFFFF; /* White */
-  --text-secondary: #BCAAA4; /* Light Coffee */
+  --text-primary: #F5E9DA; /* Parchment white */
+  --text-secondary: #D1B892; /* Muted gold */
+  --text-accent: #C6A664; /* Antique gold */
 
-  /* Buttons */
-  --btn-primary: #A1887F; /* Mocha */
-  --btn-hover: #8D6E63; /* Rich Mocha */
+  /* Button Colors */
+  --btn-primary: #A67C52; /* Leather brown */
+  --btn-hover: #8C6239; /* Darker leather */
 
   /* Borders & Lines */
-  --border-color: #5D4037; /* Deep Brown */
+  --border-color: #4A3A28; /* Dark brown border */
 
   /* Status Colors */
   --success-color: #81C784; /* Light Green */
   --error-color: #E57373; /* Soft Red */
 }
 
-
 body {
-  background: linear-gradient(
-    to right, 
-    #693511 0%,       /* Black at the edges */
-    #321c04 15%,
-    #3E2723 50%,      /* Dark coffee brown as the main color */
-    #321c04 85%,
-    #693511 100%      /* Black on the far right */
-  );
+  background: radial-gradient(circle, #2A1E12 10%, #1B1410 80%);
   color: var(--text-primary);
   min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-attachment: fixed;
 }
 
 /* Button Base Style */
@@ -53,17 +46,18 @@ body {
   border-radius: 8px;
   transition: all 0.2s;
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* Smaller Button */
 .btn-small {
   padding: 6px 12px;
-  font-size: 0.875rem; /* Slightly smaller text */
+  font-size: 0.875rem;
 }
 
 /* Main Button (Bounty Board) */
 .btn-large {
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -71,5 +65,134 @@ body {
 /* Hover Effect */
 .btn:hover {
   background-color: var(--btn-primary);
+  color: var(--bg-dark);
   transform: scale(1.05);
+}
+
+/* Section Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-accent);
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Card & Box Styles */
+.card, .box {
+  background-color: var(--bg-medium);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Links */
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--btn-hover);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  color: var(--text-primary);
+}
+
+th {
+  color: var(--text-accent);
+  font-weight: 600;
+  background-color: var(--bg-medium);
+}
+
+tr:hover td {
+  background-color: var(--bg-light);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--btn-hover);
+}
+
+/* Input Fields */
+input, textarea {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--btn-primary);
+  outline: none;
+}
+
+/* Icon Buttons */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: var(--bg-medium);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: var(--btn-hover);
+  color: var(--bg-dark);
+}
+
+/* Emphasized Text */
+.strong {
+  color: var(--text-accent);
+  font-weight: bold;
+}
+
+/* Parchment Style for Rule Texts */
+.parchment {
+  background-color: #40342A;
+  border: 1px solid #5A4532;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  color: var(--text-primary);
+}
+
+/* Medieval Shadow Effect */
+.shadowed {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Decorative Elements */
+.decorative-border {
+  border: 3px solid var(--text-accent);
+  border-radius: 12px;
+  padding: 8px;
 }

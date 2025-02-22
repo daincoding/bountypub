@@ -33,7 +33,7 @@ const BountyBoard = () => {
       </h2>
 
       {/* Navigation Buttons */}
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <div className="flex flex-wrap justify-center gap-4 mb-8 mt-10">
         <BigBountyButton
           label="Big Bounty: 1 Shot Bosses"
           onClick={() => setActiveSection("big-bounty")}
