@@ -26,19 +26,19 @@ const HeroSection = () => {
           <FaArrowDown className="text-4xl text-btn-primary" />
         </div>
 
-        {/* Navigation Buttons */}
+        {/* Navigation Buttons with Global Styles */}
         <div className="flex justify-center space-x-6 mt-6">
           {/* Leaderboard Button */}
           <button
-            className="border-2 border-btn-primary text-white py-2 px-6 rounded-lg text-lg transition-transform transform hover:scale-105 hover:bg-btn-primary cursor-pointer"
+            className="btn"
             onClick={() => document.getElementById('leaderboard').scrollIntoView({ behavior: 'smooth' })}
           >
             Leaderboard
           </button>
 
-          {/* Bounty Board Button */}
+          {/* Bounty Board Button (Slightly Larger) */}
           <button
-            className="border-2 border-btn-primary text-white py-3 px-8 rounded-lg text-xl font-bold transition-transform transform hover:scale-105 hover:bg-btn-primary cursor-pointer"
+            className="btn btn-large"
             onClick={() => document.getElementById('bounty-board').scrollIntoView({ behavior: 'smooth' })}
           >
             Bounty Board
@@ -46,7 +46,7 @@ const HeroSection = () => {
 
           {/* Join The Pub Button */}
           <button
-            className="border-2 border-btn-primary text-white py-2 px-6 rounded-lg text-lg transition-transform transform hover:scale-105 hover:bg-btn-primary cursor-pointer"
+            className="btn"
             onClick={() => document.getElementById('join-the-pub').scrollIntoView({ behavior: 'smooth' })}
           >
             Join The Pub!
