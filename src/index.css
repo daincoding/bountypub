@@ -26,7 +26,21 @@
   --error-color: #E57373; /* Soft Red */
 }
 
+
 body {
-  background-color: var(--bg-dark);
+  background: linear-gradient(
+    to right, 
+    #000000 0%,       /* Black at the edges */
+    #7e3b31 20%,      /* Very dark brown to soften transition */
+    #6c441a 30%,
+    #3E2723 50%,      /* Dark coffee brown as the main color */
+    #6c441a 70%,
+    #7e3b31 80%,      /* Back to very dark brown */
+    #000000 100%      /* Black on the far right */
+  );
   color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
