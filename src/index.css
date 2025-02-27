@@ -43,7 +43,7 @@ body {
   color: var(--text-primary);
   background-color: transparent;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 15px;
   transition: all 0.2s;
   cursor: pointer;
   font-weight: bold;
@@ -51,13 +51,13 @@ body {
 
 /* Smaller Button */
 .btn-small {
-  padding: 6px 12px;
+  padding: 6px 20px;
   font-size: 0.875rem;
 }
 
 /* Main Button (Bounty Board) */
 .btn-large {
-  padding: 10px 20px;
+  padding: 10px 50px;
   font-size: 1.25rem;
   font-weight: bold;
 }
