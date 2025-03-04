@@ -3,7 +3,7 @@ import Papa from "papaparse";
 import { FaSync } from "react-icons/fa"; // Importing a refresh icon
 
 const GOOGLE_SHEET_CSV_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=1301679066&output=csv";
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=983309588&output=csv";
 
 const LeaderboardsSmallBounty = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);

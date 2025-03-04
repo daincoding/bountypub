@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BigBountyContent from "./BigBountyContent";
 import SmallBountyContent from "./SmallBountyContent";
+import SmallBountyContent2 from "./SmallBountyContent2"; // New component for the second small bounty
 import { FaArrowUp } from "react-icons/fa"; 
 import { motion } from "framer-motion";
 
@@ -12,8 +13,9 @@ const BountyBoard = () => {
   };
 
   const getActiveBountyText = () => {
-    if (activeSection === "big-bounty") return "Big Bounty: 1 Shot Bosses";
-    if (activeSection === "small-bounty") return "Small Bounty: Starting Class Only Permadeath";
+    if (activeSection === "big-bounty") return "Big Bounty: Any% Randomizer Bounty";
+    if (activeSection === "small-bounty") return "Small Bounty: Morgott Must Die";
+    if (activeSection === "small-bounty-2") return "Small Bounty: Wallpaper Creator Bounty";
     return "No Bounty Selected";
   };
 
@@ -35,7 +37,7 @@ const BountyBoard = () => {
         <span role="img" aria-label="crossed-swords">⚔️</span>
       </motion.h2>
 
-      {/* Navigation Buttons with Smaller Size & Staggered Animation */}
+      {/* Navigation Buttons */}
       <motion.div 
         className="flex flex-wrap justify-center gap-4 mb-8 mt-10"
         initial="hidden"
@@ -43,26 +45,29 @@ const BountyBoard = () => {
         transition={{ staggerChildren: 0.1 }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        {["big-bounty", "small-bounty", "past-bounties"].map((section, index) => (
+        {[
+          { key: "big-bounty", label: "Big Bounty: Any% Randomizer Bounty" },
+          { key: "small-bounty", label: "Small Bounty: Morgott Must Die" },
+          { key: "small-bounty-2", label: "Small Bounty: Wallpaper Creator Bounty" },
+          { key: "past-bounties", label: "Past Bounties & Rules: Join The Pub!" }
+        ].map(({ key, label }) => (
           <motion.button
-            key={section}
+            key={key}
             onClick={() => 
-              section === "past-bounties" ? handleJoinPubClick() : setActiveSection(section)
+              key === "past-bounties" ? handleJoinPubClick() : setActiveSection(key)
             }
-            className="btn btn-small"
+            className="btn btn-small bg-btn-primary text-white border border-btn-hover"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0 }
             }}
           >
-            {section === "big-bounty" && "Big Bounty: 1 Shot Bosses"}
-            {section === "small-bounty" && "Small Bounty: Starting Class Only Permadeath"}
-            {section === "past-bounties" && "Past Bounties & Rules: Join The Pub!"}
+            {label}
           </motion.button>
         ))}
       </motion.div>
 
-      {/* Display Selected Bounty with Slide-up Animation */}
+      {/* Display Selected Bounty */}
       <motion.div 
         className="mb-2 text-2xl md:text-3xl font-semibold text-btn-primary"
         initial={{ opacity: 0, y: 20 }}
@@ -91,7 +96,7 @@ const BountyBoard = () => {
         </motion.div>
       )}
 
-      {/* Display Content Based on Active Section with Fade-in Animation */}
+      {/* Display Content Based on Active Section */}
       <motion.div 
         className="w-full max-w-6xl mt-5"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -101,6 +106,7 @@ const BountyBoard = () => {
       >
         {activeSection === "big-bounty" && <BigBountyContent />}
         {activeSection === "small-bounty" && <SmallBountyContent />}
+        {activeSection === "small-bounty-2" && <SmallBountyContent2 />} 
       </motion.div>
     </section>
   );

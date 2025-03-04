@@ -25,21 +25,21 @@ const Footer = () => {
         >
           BountyPub hosted by 
           <a 
-            href="https://twitch.tv/zoodle" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-btn-primary hover:underline mx-1"
-          >
-            Zoodle
-          </a>
-          and 
-          <a 
             href="https://www.twitch.tv/nuclearpastatom" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="text-btn-primary hover:underline mx-1"
           >
             NPT
+          </a>
+          and 
+          <a 
+            href="https://twitch.tv/zoodle" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-btn-primary hover:underline mx-1"
+          >
+            Zoodle
           </a>
         </motion.p>
 

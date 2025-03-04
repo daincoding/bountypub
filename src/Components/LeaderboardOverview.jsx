@@ -71,17 +71,20 @@ const LeaderboardOverview = () => {
 
   return (
     <motion.div
-  className="bg-bg-dark p-4 rounded-md max-h-[70vh] max-w-[50%] overflow-hidden relative border-4 border-btn-primary mx-auto"
-  id="leaderboard"
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.5, ease: "easeInOut" }}
->
+      id="leaderboard"
+      className="p-4 rounded-md max-h-[70vh] max-w-[50%] overflow-hidden relative border-4 border-btn-primary mx-auto shadow-md my-50"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      style={{
+        backgroundColor: "var(--bg-medium)", // Apply the correct background color
+        height: "100%",
+        boxSizing: "border-box",
+      }}
+    >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-2xl font-bold flex items-center space-x-2">
-          <span role="img" aria-label="bow-and-arrow">
-            🏹
-          </span>
+          <span role="img" aria-label="bow-and-arrow">🏹</span>
           <span>Best Hunters Leaderboard</span>
         </h3>
 
@@ -106,8 +109,14 @@ const LeaderboardOverview = () => {
       </div>
 
       {filteredData.length > 0 ? (
-        <div className="overflow-y-auto max-h-[50vh] border-t border-btn-primary">
-          <table className="w-full border-collapse min-w-[400px]">
+        <div 
+          className="overflow-y-auto max-h-[50vh] border-t border-btn-primary rounded-md p-2"
+          style={{ backgroundColor: "var(--bg-medium)" }} // Apply background to table container
+        >
+          <table 
+            className="w-full border-collapse min-w-[400px]"
+            style={{ backgroundColor: "var(--bg-medium)" }} // Apply background to table
+          >
             <thead className="sticky top-0 bg-bg-dark z-10">
               <tr className="text-left">
                 <th className="p-2 border-b border-btn-primary">Place</th>
@@ -119,21 +128,17 @@ const LeaderboardOverview = () => {
               <AnimatePresence>
                 {filteredData.map((row, index) => {
                   const actualPlace =
-                    leaderboardData.findIndex(
-                      (data) => data.Hunter === row.Hunter
-                    ) + 1;
+                    leaderboardData.findIndex((data) => data.Hunter === row.Hunter) + 1;
 
                   return (
                     <motion.tr
                       key={row.Hunter}
-                      className="hover:bg-bg-medium"
+                      className="hover:bg-bg-light"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 0.3,
-                        ease: "easeInOut",
-                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      style={{ backgroundColor: "var(--bg-medium)" }} // Ensure background applies to each row
                     >
                       <td className="p-2">{getMedalEmoji(actualPlace)}</td>
                       <td className="p-2">{row.Hunter}</td>

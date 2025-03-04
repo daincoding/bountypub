@@ -13,7 +13,7 @@
   /* Text Colors */
   --text-primary: #F5E9DA; /* Parchment white */
   --text-secondary: #D1B892; /* Muted gold */
-  --text-accent: #C6A664; /* Antique gold */
+  --text-accent: #fdd27a; /* Antique gold */
 
   /* Button Colors */
   --btn-primary: #A67C52; /* Leather brown */
@@ -28,25 +28,43 @@
 }
 
 body {
-  background: radial-gradient(circle, #2A1E12 10%, #1B1410 80%);
+  position: relative;
+  background: url('./assets/images/wood_texture.jpg'); /* Adjust path if needed */
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
   color: var(--text-primary);
   min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-attachment: fixed;
+}
+
+/* Overlay to Darken the Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Adjust opacity (0.5 = 50% transparent) */
+  pointer-events: none; /* Ensures it doesn’t interfere with clicks */
+  z-index: -1; /* Keeps it behind everything */
 }
 
 /* Button Base Style */
 .btn {
   border: 2px solid var(--btn-primary);
   color: var(--text-primary);
-  background-color: transparent;
+  background-color: var(--bg-medium); /* Darker brown background */
   padding: 8px 16px;
   border-radius: 15px;
   transition: all 0.2s;
   cursor: pointer;
   font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
 }
 
 /* Smaller Button */
@@ -64,9 +82,15 @@ body {
 
 /* Hover Effect */
 .btn:hover {
-  background-color: var(--btn-primary);
+  background-color: var(--btn-hover);
   color: var(--bg-dark);
   transform: scale(1.05);
+}
+
+/* Active Click Effect */
+.btn:active {
+  transform: scale(0.98);
+  background-color: var(--border-color);
 }
 
 /* Section Headers */

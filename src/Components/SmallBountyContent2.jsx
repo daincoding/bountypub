@@ -1,8 +1,8 @@
 import React from "react";
-import LeaderboardsBigBounty from "./LeaderboardsBigBounty";
+import LeaderboardsSmallBounty2 from "./LeaderboardsSmallBounty2";
 import { motion, AnimatePresence } from "framer-motion";
 
-const BigBountyContent = () => {
+const SmallBountyContent = () => {
   return (
     <AnimatePresence>
       <motion.div
@@ -26,15 +26,14 @@ const BigBountyContent = () => {
             <div className="overflow-y-auto flex-grow mb-4 pr-2">
               <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
               <p className="mb-4">
-              Complete the Any% Randomizer as quickly as you can! See rules below
+              Take a screenshot with your dressed up character and your favorite gesture at any location in Elden Ring that you find is wallpaper worthy.
               </p>
 
               <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
               <ul className="space-y-2">
                 <li>📆 You will have 2 weeks to complete the bounties</li>
                 <li>
-                  📫 Submissions are due Saturday, 15. March 2025 at 12PM EST for the
-                  top 3 ranking
+                  📫 Submission deadline is: Sunday, March 9 at 12pm EST
                 </li>
                 <li>❓ If you have any questions, please let us know</li>
               </ul>
@@ -43,7 +42,7 @@ const BigBountyContent = () => {
             {/* Action Buttons with Links */}
             <div className="flex flex-col space-y-2">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfYRjvRW8EtxYKEAY3lySqE-0_MBpAZbcHqHljHLWXW2npICw/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLScjZfevoaS4KKsgtDL6D3N6pDc4cNHJYP8K3OjDMIRI0TmgFg/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn bg-btn-primary text-center py-2 rounded-lg text-white"
@@ -72,8 +71,8 @@ const BigBountyContent = () => {
               boxSizing: "border-box",
             }}
           >
-            <h3 className="text-2xl font-bold mb-2">Leaderboard</h3>
-            <LeaderboardsBigBounty />
+            <h3 className="text-2xl font-bold mb-2">Hunterboard</h3>
+            <LeaderboardsSmallBounty2 />
           </div>
         </div>
       </motion.div>
@@ -81,4 +80,4 @@ const BigBountyContent = () => {
   );
 };
 
-export default BigBountyContent;
+export default SmallBountyContent;
