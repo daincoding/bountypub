@@ -95,11 +95,19 @@ const HeroSection = () => {
           </motion.button>
 
           <motion.button
-            className="btn btn-large"
+            className="btn btn-small"
             onClick={() => document.getElementById('bounty-board').scrollIntoView({ behavior: 'smooth' })}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
             Bounty Board
+          </motion.button>
+
+          <motion.button
+            className="btn btn-small"
+            onClick={() => document.getElementById('wall-of-fame').scrollIntoView({ behavior: 'smooth' })}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+          >
+            Wall Of Fame
           </motion.button>
 
           <motion.button

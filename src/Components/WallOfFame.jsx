@@ -1,136 +1,115 @@
-import React, { useState, useEffect } from "react";
-import Papa from "papaparse";
+import React, { useState } from "react";
+import pastBigBounties from "../data/pastBigBounties.json"; // Import JSON data
 import { motion } from "framer-motion";
-import { FaTrophy } from "react-icons/fa";
-
-const PAST_BOUNTY_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=123456&output=csv"; 
 
 const WallOfFame = () => {
-  const [category, setCategory] = useState("");
-  const [bountyList, setBountyList] = useState([]);
-  const [selectedBounty, setSelectedBounty] = useState("");
-  const [leaderboardData, setLeaderboardData] = useState([]);
-
-  useEffect(() => {
-    if (selectedBounty) {
-      fetchLeaderboardData();
-    }
-  }, [selectedBounty]);
-
-  const fetchLeaderboardData = async () => {
-    try {
-      const response = await fetch(PAST_BOUNTY_CSV_URL);
-      const csvData = await response.text();
-
-      Papa.parse(csvData, {
-        header: true,
-        skipEmptyLines: true,
-        complete: (result) => {
-          const filteredData = result.data.filter(
-            (row) => row.Bounty === selectedBounty
-          );
-          setLeaderboardData(filteredData);
-        },
-      });
-    } catch (error) {
-      console.error("Failed to fetch past bounty data:", error);
-    }
-  };
-
-  const handleCategoryChange = (value) => {
-    setCategory(value);
-    setSelectedBounty("");
-    if (value === "Big Bounty") {
-      setBountyList(["1 Shot Bosses - February", "No Damage Any% - March"]);
-    } else if (value === "Small Bounty") {
-      setBountyList(["Permadeath Challenge - January", "Magic Only Run - April"]);
-    }
-  };
+  const [selectedBounty, setSelectedBounty] = useState(null);
 
   return (
-    <section className="flex flex-col items-center text-text-primary px-4 py-10">
+    <section
+      id="wall-of-fame"
+      className="flex flex-col items-center min-h-screen bg-bg-dark text-text-primary px-4 pt-20"
+    >
       {/* Title */}
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-8 flex items-center space-x-4"
+      <motion.h2 
+        className="text-5xl md:text-6xl font-bold mb-8 flex items-center space-x-3 text-text-accent"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <FaTrophy className="text-btn-primary" />
-        <span>Wall of Fame</span>
-        <FaTrophy className="text-btn-primary" />
+        <span>🏆</span> 
+        <span>Wall of Fame</span> 
+        <span>🏆</span>
       </motion.h2>
 
-      {/* Dropdown Selection */}
-      <div className="flex flex-wrap justify-center gap-4 mb-6">
-        {/* Select Category */}
-        <motion.select
-          className="bg-bg-light text-text-primary border border-btn-primary rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-btn-primary"
-          value={category}
-          onChange={(e) => handleCategoryChange(e.target.value)}
-          initial={{ opacity: 0, y: 10 }}
+      {/* Dropdown to Select a Bounty */}
+      <motion.div
+        className="mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <select
+          className="bg-bg-medium text-text-primary border border-btn-primary rounded-md px-4 py-2 w-72 cursor-pointer text-lg font-semibold my-10"
+          onChange={(e) => setSelectedBounty(pastBigBounties.find(bounty => bounty.title === e.target.value))}
+          defaultValue=""
+        >
+          <option value="" disabled>-- Select a Bounty --</option>
+          {pastBigBounties.map((bounty, index) => (
+            <option key={index} value={bounty.title}>{bounty.title}</option>
+          ))}
+        </select>
+      </motion.div>
+
+      {/* Display Podium for Top 3 */}
+      {selectedBounty && (
+        <motion.div 
+          className="flex justify-center items-end mt-10 space-x-6 w-full max-w-xl"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <option value="">Select Category</option>
-          <option value="Big Bounty">Big Bounty</option>
-          <option value="Small Bounty">Small Bounty</option>
-        </motion.select>
+          {/* 2nd Place - Medium Height */}
+          <div className="flex flex-col items-center">
+            <span className="text-4xl mb-2">🥈</span>
+            <motion.div 
+              className="w-32 md:w-40 flex flex-col items-center rounded-lg shadow-lg border-4 border-btn-primary"
+              style={{
+                backgroundColor: "var(--bg-medium)",  
+                height: "120px", /* Explicit height */
+              }}
+            >
+              {/* Player Name at Top */}
+              <div className="w-full py-2 bg-bg-light text-center text-lg font-bold">
+                {selectedBounty.top3[1]?.name}
+              </div>
+              {/* Podium Label at Bottom */}
+              <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
+                2nd Place
+              </div>
+            </motion.div>
+          </div>
 
-        {/* Select Specific Bounty */}
-        {category && (
-          <motion.select
-            className="bg-bg-light text-text-primary border border-btn-primary rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-btn-primary"
-            value={selectedBounty}
-            onChange={(e) => setSelectedBounty(e.target.value)}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            <option value="">Select Bounty</option>
-            {bountyList.map((bounty, index) => (
-              <option key={index} value={bounty}>
-                {bounty}
-              </option>
-            ))}
-          </motion.select>
-        )}
-      </div>
+          {/* 1st Place - Tallest Podium */}
+          <div className="flex flex-col items-center">
+            <span className="text-5xl mb-2">🥇</span>
+            <motion.div 
+              className="w-36 md:w-48 flex flex-col items-center rounded-lg shadow-xl border-4 border-text-accent"
+              style={{
+                backgroundColor: "var(--btn-primary)",  
+                height: "160px", /* Tallest podium */
+              }}
+            >
+              {/* Player Name at Top */}
+              <div className="w-full py-2 bg-bg-light text-center text-xl font-bold">
+                {selectedBounty.top3[0]?.name}
+              </div>
+              {/* Podium Label at Bottom */}
+              <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
+                1st Place
+              </div>
+            </motion.div>
+          </div>
 
-      {/* Leaderboard */}
-      {selectedBounty && leaderboardData.length > 0 && (
-        <motion.div
-          className="bg-bg-dark p-4 rounded-md max-w-3xl w-full border-4 border-btn-primary"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h3 className="text-2xl font-bold mb-4 text-center">{selectedBounty} Leaderboard</h3>
-          <div className="overflow-y-auto max-h-[50vh]">
-            <table className="w-full border-collapse">
-              <thead className="sticky top-0 bg-bg-dark z-10">
-                <tr className="text-left">
-                  <th className="p-2 border-b border-btn-primary">Place</th>
-                  <th className="p-2 border-b border-btn-primary">Hunter</th>
-                  <th className="p-2 border-b border-btn-primary">Total Points</th>
-                </tr>
-              </thead>
-              <tbody>
-                {leaderboardData.map((row, index) => (
-                  <motion.tr
-                    key={index}
-                    className="hover:bg-bg-medium"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.4 }}
-                  >
-                    <td className="p-2">#{index + 1}</td>
-                    <td className="p-2">{row.Hunter}</td>
-                    <td className="p-2">{row.Points}</td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
+          {/* 3rd Place - Shortest Podium */}
+          <div className="flex flex-col items-center">
+            <span className="text-4xl mb-2">🥉</span>
+            <motion.div 
+              className="w-28 md:w-36 flex flex-col items-center rounded-lg shadow-lg border-4 border-btn-primary"
+              style={{
+                backgroundColor: "var(--bg-medium)",  
+                height: "100px", /* Shortest podium */
+              }}
+            >
+              {/* Player Name at Top */}
+              <div className="w-full py-2 bg-bg-light text-center text-lg font-bold">
+                {selectedBounty.top3[2]?.name}
+              </div>
+              {/* Podium Label at Bottom */}
+              <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
+                3rd Place
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       )}

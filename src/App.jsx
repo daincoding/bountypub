@@ -12,6 +12,7 @@ const App = () => {
       <HeroSection />
       <BountyBoard />
       <LeaderboardOverview />
+      <WallOfFame />
       <Footer />
     </div>
   );
