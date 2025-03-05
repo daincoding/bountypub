@@ -19,7 +19,7 @@ const WallOfFame = () => {
     >
       {/* Title */}
       <motion.h2
-        className="text-5xl md:text-6xl font-bold mb-8 flex items-center space-x-3 text-text-accent"
+        className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 flex items-center space-x-3 text-text-accent text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -31,7 +31,7 @@ const WallOfFame = () => {
 
       {/* Custom Dropdown to Select a Bounty */}
       <motion.div
-        className="mb-6 w-80 mt-10"
+        className="mb-6 w-full max-w-xs sm:max-w-md mt-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -75,39 +75,73 @@ const WallOfFame = () => {
       {/* Display Podium for Top 3 */}
       {selectedBounty && (
         <motion.div
-          className="flex justify-center items-end mt-10 space-x-6 w-full max-w-xl"
+          className="flex flex-col sm:flex-row items-center justify-center mt-10 gap-6 w-full max-w-3xl px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Podium Positions */}
-          {["2nd Place", "1st Place", "3rd Place"].map((place, index) => {
-            const colors = ["var(--bg-medium)", "var(--btn-primary)", "var(--bg-medium)"];
-            const heights = ["120px", "160px", "100px"];
-            const emojis = ["🥈", "🥇", "🥉"];
-
-            return (
-              <div key={index} className="flex flex-col items-center">
-                <span className="text-4xl mb-2">{emojis[index]}</span>
-                <motion.div
-                  className="w-32 md:w-40 flex flex-col items-center rounded-lg shadow-lg border-4 border-btn-primary"
-                  style={{
-                    backgroundColor: colors[index],
-                    height: heights[index],
-                  }}
-                >
-                  {/* Player Name at Top */}
-                  <div className="w-full py-2 bg-bg-light text-center text-lg font-bold">
-                    {selectedBounty.top3[index]?.name}
-                  </div>
-                  {/* Podium Label at Bottom */}
-                  <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
-                    {place}
-                  </div>
-                </motion.div>
+          {/* 1st Place - Centered */}
+          <div className="flex flex-col items-center order-0">
+            <span className="text-5xl mb-2">🥇</span>
+            <motion.div
+              className="w-32 sm:w-40 md:w-48 flex flex-col items-center rounded-lg shadow-xl border-4 border-text-accent"
+              style={{
+                backgroundColor: "var(--btn-primary)",
+                height: "160px",
+              }}
+            >
+              {/* Player Name at Top */}
+              <div className="w-full py-2 bg-bg-light text-center text-xl font-bold">
+                {selectedBounty.top3[0]?.name}
               </div>
-            );
-          })}
+              {/* Podium Label at Bottom */}
+              <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
+                1st Place
+              </div>
+            </motion.div>
+          </div>
+
+          {/* 2nd Place - Left (Stacks under 1st on mobile) */}
+          <div className="flex flex-col items-center order-1 sm:order-none">
+            <span className="text-4xl mb-2">🥈</span>
+            <motion.div
+              className="w-28 sm:w-32 md:w-40 flex flex-col items-center rounded-lg shadow-lg border-4 border-btn-primary"
+              style={{
+                backgroundColor: "var(--bg-medium)",
+                height: "120px",
+              }}
+            >
+              {/* Player Name at Top */}
+              <div className="w-full py-2 bg-bg-light text-center text-lg font-bold">
+                {selectedBounty.top3[1]?.name}
+              </div>
+              {/* Podium Label at Bottom */}
+              <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
+                2nd Place
+              </div>
+            </motion.div>
+          </div>
+
+          {/* 3rd Place - Right (Stacks under 1st on mobile) */}
+          <div className="flex flex-col items-center order-2 sm:order-none">
+            <span className="text-4xl mb-2">🥉</span>
+            <motion.div
+              className="w-28 sm:w-32 md:w-40 flex flex-col items-center rounded-lg shadow-lg border-4 border-btn-primary"
+              style={{
+                backgroundColor: "var(--bg-medium)",
+                height: "100px",
+              }}
+            >
+              {/* Player Name at Top */}
+              <div className="w-full py-2 bg-bg-light text-center text-lg font-bold">
+                {selectedBounty.top3[2]?.name}
+              </div>
+              {/* Podium Label at Bottom */}
+              <div className="flex-grow flex items-end justify-center w-full bg-bg-dark py-2 rounded-b-lg text-center text-sm font-semibold">
+                3rd Place
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </section>

@@ -9,17 +9,17 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center h-screen bg-bg-dark text-text-primary px-4">
-      <div className="text-center max-w-4xl">
+    <section className="flex flex-col items-center justify-center min-h-screen bg-bg-dark text-text-primary px-6 md:px-12">
+      <div className="text-center w-full max-w-4xl">
         
         {/* Animated Heading */}
         <motion.h1 
-          className="text-3xl md:text-5xl font-bold mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          Welcome Travelers to the 
+          Welcome Travelers to the  
           <span className="inline-flex items-center">
             🍻 <span className="px-2">Bounty Pub</span> 🍻
           </span>
@@ -27,7 +27,7 @@ const HeroSection = () => {
 
         {/* Animated Subheading */}
         <motion.p 
-          className="text-lg md:text-xl mb-6"
+          className="text-lg sm:text-xl md:text-2xl mb-8 px-2 md:px-0"
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -45,7 +45,7 @@ const HeroSection = () => {
           <motion.img
             src={Logo}
             alt="Bounty Pub"
-            className="w-full max-w-md"
+            className="w-40 sm:w-56 md:w-64 lg:w-80 xl:w-96"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
           />
@@ -53,7 +53,7 @@ const HeroSection = () => {
 
         {/* Animated Enter Text */}
         <motion.p 
-          className="text-2xl mb-4"
+          className="text-xl sm:text-2xl mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
@@ -67,12 +67,12 @@ const HeroSection = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
         >
-          <FaArrowDown className="text-4xl text-btn-primary" />
+          <FaArrowDown className="text-4xl sm:text-5xl text-btn-primary" />
         </motion.div>
 
         {/* Animated Buttons with Staggered Appearance */}
         <motion.div 
-          className="flex justify-center space-x-6 mt-6"
+          className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6"
           initial="hidden"
           animate="visible"
           variants={{
@@ -87,7 +87,7 @@ const HeroSection = () => {
           }}
         >
           <motion.button
-            className="btn btn-small"
+            className="btn btn-small w-48 sm:w-auto"
             onClick={() => document.getElementById('bounty-board').scrollIntoView({ behavior: 'smooth' })}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
@@ -95,7 +95,7 @@ const HeroSection = () => {
           </motion.button>
           
           <motion.button
-            className="btn btn-small"
+            className="btn btn-small w-48 sm:w-auto"
             onClick={() => document.getElementById('leaderboard').scrollIntoView({ behavior: 'smooth' })}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
@@ -103,7 +103,7 @@ const HeroSection = () => {
           </motion.button>
 
           <motion.button
-            className="btn btn-small"
+            className="btn btn-small w-48 sm:w-auto"
             onClick={() => document.getElementById('wall-of-fame').scrollIntoView({ behavior: 'smooth' })}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >
@@ -111,7 +111,7 @@ const HeroSection = () => {
           </motion.button>
 
           <motion.button
-            className="btn btn-small"
+            className="btn btn-small w-48 sm:w-auto"
             onClick={handleJoinPubClick}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
           >

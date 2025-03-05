@@ -22,13 +22,13 @@ const BountyBoard = () => {
   return (
     <section
       id="bounty-board"
-      className="flex flex-col items-center min-h-screen bg-bg-dark text-text-primary px-4 pt-30"
+      className="flex flex-col items-center min-h-screen bg-bg-dark text-text-primary px-4 pt-10 pb-10"
     >
       {/* Title at the Top */}
       <motion.h2 
-        className="text-4xl md:text-6xl font-bold mb-8 flex items-center space-x-4"
+        className="text-4xl md:text-6xl font-bold mb-8 flex items-center space-x-4 text-center"
         initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true, amount: 0.5 }}
       >
@@ -39,7 +39,7 @@ const BountyBoard = () => {
 
       {/* Navigation Buttons */}
       <motion.div 
-        className="flex flex-wrap justify-center gap-4 mb-8 mt-10"
+        className="flex flex-wrap justify-center gap-4 mb-8 mt-4"
         initial="hidden"
         whileInView="visible"
         transition={{ staggerChildren: 0.1 }}
@@ -56,7 +56,7 @@ const BountyBoard = () => {
             onClick={() => 
               key === "past-bounties" ? handleJoinPubClick() : setActiveSection(key)
             }
-            className="btn btn-small bg-btn-primary text-white border border-btn-hover"
+            className="btn btn-small bg-btn-primary text-white border border-btn-hover px-4 py-2"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0 }
@@ -81,7 +81,7 @@ const BountyBoard = () => {
       {/* Animated Arrow and "CHOOSE A BOUNTY" Message */}
       {!activeSection && (
         <motion.div 
-          className="flex flex-col items-center mt-32"
+          className="flex flex-col items-center mt-16"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -96,7 +96,7 @@ const BountyBoard = () => {
 
       {/* Display Content Based on Active Section */}
       <motion.div 
-        className="w-full max-w-6xl mt-5"
+        className="w-full max-w-6xl mt-5 min-h-[60vh] flex items-center justify-center"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
