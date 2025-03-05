@@ -29,14 +29,15 @@
 
 body {
   position: relative;
-  background-color: var(--bg-dark);
-  background: url('./assets/images/wood_texture.webp');
-  background-size: cover;       
-  background-position: center;  
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
+  background-color: var(--bg-dark); /* Always have a fallback */
+  background-image: url('./assets/images/wood_texture.webp'); /* Use the WEBP */
+  background-size: cover; /* Default */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
+  min-width: 100vw;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
