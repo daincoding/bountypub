@@ -27,11 +27,17 @@
   --error-color: #E57373; /* Soft Red */
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   position: relative;
-  background-color: var(--bg-dark); /* Always have a fallback */
-  background-image: url('./assets/images/wood_texture.webp'); /* Use the WEBP */
-  background-size: cover; /* Default */
+  background-color: var(--bg-dark); /* Fallback color */
+  background-image: url('./assets/images/wood_texture.webp');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -41,6 +47,14 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+}
+
+/* Ensure the background behaves correctly on smaller screens */
+@media (max-width: 768px) {
+  body {
+    background-size: contain; /* Prevents zooming */
+    background-attachment: scroll; /* Fix for iOS Safari */
+  }
 }
 
 
