@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <motion.footer 
-      className="bg-bg-dark text-text-primary p-6 border-t border-btn-primary"
+      className="bg-bg-dark text-text-primary p-6 border-t border-btn-primary mt-6"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
