@@ -29,6 +29,7 @@
 
 body {
   position: relative;
+  background-color: var(--bg-dark);
   background: url('./assets/images/wood_texture.jpg'); /* Adjust path if needed */
   background-size: cover;       
   background-position: center;  
