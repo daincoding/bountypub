@@ -30,7 +30,7 @@ const HeroSection = () => {
           className="text-lg md:text-xl mb-6"
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           Join the challenge runs, conquer bounties, and make your mark!
         </motion.p>

@@ -89,9 +89,7 @@ const BountyBoard = () => {
         >
           <FaArrowUp className="text-4xl text-btn-primary animate-bounce mb-4" />
           <h3 className="text-3xl md:text-4xl font-semibold flex items-center space-x-2">
-            <span role="img" aria-label="treasure">🪙</span>
             <span>CHOOSE A BOUNTY</span>
-            <span role="img" aria-label="treasure">🪙</span>
           </h3>
         </motion.div>
       )}
