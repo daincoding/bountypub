@@ -27,12 +27,6 @@
   --error-color: #E57373; /* Soft Red */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   position: relative;
   background-color: var(--bg-dark); /* Fallback color */
@@ -47,14 +41,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-}
-
-/* Ensure the background behaves correctly on smaller screens */
-@media (max-width: 768px) {
-  body {
-    background-size: contain; /* Prevents zooming */
-    background-attachment: scroll; /* Fix for iOS Safari */
-  }
 }
 
 
