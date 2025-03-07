@@ -47,6 +47,7 @@ const LeaderboardOverview = () => {
         Hunter: row["Discord usernames"]?.trim(),
         Points: parseInt(row["Total Points"], 10) || 0,
       }))
+      .filter((row) => row.Hunter && row.Points > 0) // Remove empty rows
       .sort((a, b) => b.Points - a.Points);
   };
 
