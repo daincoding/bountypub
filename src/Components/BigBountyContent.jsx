@@ -26,15 +26,15 @@ const BigBountyContent = () => {
             <div className="overflow-y-auto flex-grow mb-4 pr-2">
               <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
               <p className="mb-4">
-              Complete the Any% Randomizer as quickly as you can! See rules below
+              Complete 3 unique lines on the bingo board!  See rules below
               </p>
 
               <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
               <ul className="space-y-2">
                 <li>📆 You will have 2 weeks to complete the bounties</li>
                 <li>
-                  📫 Submissions are due Saturday, 15. March 2025 at 12PM EST for the
-                  top 3 ranking
+                  📫 Submissions are due Saturday, 29. March 2025 at 1PM EST for the
+                  Top 3 ranking
                 </li>
                 <li>❓ If you have any questions, please let us know</li>
               </ul>
@@ -43,7 +43,7 @@ const BigBountyContent = () => {
             {/* Action Buttons with Links */}
             <div className="flex flex-col space-y-2">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfYRjvRW8EtxYKEAY3lySqE-0_MBpAZbcHqHljHLWXW2npICw/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeO0E9oLAcbGlD_kUzaOXB-WrsEB03L5BbWZIyLm8Q3bwGAyg/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn bg-btn-primary text-center py-2 rounded-lg text-white"

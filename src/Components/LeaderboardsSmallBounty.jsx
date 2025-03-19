@@ -3,7 +3,7 @@ import Papa from "papaparse";
 import { FaSync } from "react-icons/fa"; // Importing a refresh icon
 
 const GOOGLE_SHEET_CSV_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=1301679066&output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=779123651&single=true&output=csv";
 
 const LeaderboardsSmallBounty = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -41,10 +41,11 @@ const LeaderboardsSmallBounty = () => {
         Points:
           row[
             "Please provide the point total you earned from the Reward Breakdown above:"
-          ],
+          ]?.trim(),
+        Video: row["Please provide a YT upload/Twitch highlight of your run if you did it hitless"]?.trim(),
       }))
-      .filter((row) => row.Hunter) // Ensure valid entries
-      .sort((a, b) => a.Hunter.localeCompare(b.Hunter)); // Sort alphabetically
+      .filter((row) => row.Hunter && row.Points) // Ensure valid entries
+      .sort((a, b) => b.Points - a.Points); // Sort by highest points
   };
 
   return (
@@ -65,11 +66,12 @@ const LeaderboardsSmallBounty = () => {
 
       {leaderboardData.length > 0 ? (
         <div className="overflow-x-auto overflow-y-auto max-h-full h-full">
-          <table className="w-full border-collapse min-w-[400px]">
+          <table className="w-full border-collapse min-w-[500px]">
             <thead className="sticky top-0 bg-bg-dark">
               <tr className="text-left">
                 <th className="p-2 border-b border-btn-primary">Hunter</th>
                 <th className="p-2 border-b border-btn-primary">Points</th>
+                <th className="p-2 border-b border-btn-primary">Video</th>
               </tr>
             </thead>
             <tbody>
@@ -77,6 +79,20 @@ const LeaderboardsSmallBounty = () => {
                 <tr key={index} className="hover:bg-bg-medium">
                   <td className="p-2">{row.Hunter}</td>
                   <td className="p-2">{row.Points}</td>
+                  <td className="p-2">
+                    {row.Video ? (
+                      <a
+                        href={row.Video}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-btn-primary hover:underline"
+                      >
+                        Watch Run
+                      </a>
+                    ) : (
+                      "No Video"
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>

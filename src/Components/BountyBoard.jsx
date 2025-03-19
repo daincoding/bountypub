@@ -13,9 +13,8 @@ const BountyBoard = () => {
   };
 
   const getActiveBountyText = () => {
-    if (activeSection === "big-bounty") return "Big Bounty: Any% Randomizer Bounty";
-    if (activeSection === "small-bounty") return "Small Bounty: Morgott Must Die";
-    if (activeSection === "small-bounty-2") return "Small Bounty: Wallpaper Creator Bounty";
+    if (activeSection === "big-bounty") return "Big Bounty: BountyBub's Bingo Board";
+    if (activeSection === "small-bounty") return "Small Bounty: Moose Murder Madness";
     return "No Bounty Selected";
   };
 
@@ -46,9 +45,8 @@ const BountyBoard = () => {
         viewport={{ once: true, amount: 0.5 }}
       >
         {[
-          { key: "big-bounty", label: "Big Bounty: Any% Randomizer Bounty" },
-          { key: "small-bounty", label: "Small Bounty: Morgott Must Die" },
-          { key: "small-bounty-2", label: "Small Bounty: Wallpaper Creator Bounty" },
+          { key: "big-bounty", label: "Big Bounty: BountyBub's Bingo Board" },
+          { key: "small-bounty", label: "Small Bounty: Moose Murder Madness" },,
           { key: "past-bounties", label: "Past Bounties & Rules: Join The Pub!" }
         ].map(({ key, label }) => (
           <motion.button
@@ -104,7 +102,6 @@ const BountyBoard = () => {
       >
         {activeSection === "big-bounty" && <BigBountyContent />}
         {activeSection === "small-bounty" && <SmallBountyContent />}
-        {activeSection === "small-bounty-2" && <SmallBountyContent2 />} 
       </motion.div>
     </section>
   );

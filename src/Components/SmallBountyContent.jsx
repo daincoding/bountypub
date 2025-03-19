@@ -26,14 +26,14 @@ const SmallBountyContent = () => {
             <div className="overflow-y-auto flex-grow mb-4 pr-2">
               <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
               <p className="mb-4">
-              Using only 1 weapon/spell type, kill Morgott in less than 90 minutes! See rules below:
+              Kill both Ancestor Spirits with any additional difficulty above! See rules below:
               </p>
 
               <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
               <ul className="space-y-2">
                 <li>📆 You will have 2 weeks to complete the bounties</li>
                 <li>
-                  📫 Submission deadline is: Saturday, March 15 at 12pm EST
+                  📫 Submission deadline is: Saturday, March 29 at 1pm EST
                 </li>
                 <li>❓ If you have any questions, please let us know</li>
               </ul>
@@ -42,7 +42,7 @@ const SmallBountyContent = () => {
             {/* Action Buttons with Links */}
             <div className="flex flex-col space-y-2">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdCElkOT6qGcm44KnUqZC1jqBy0DlXzXeezD3JeqNHc1EQIig/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfdF_uaG1jc1WEz3hawJ5BWqc4WV1mfHKHx0ApUXRmzbH9mHA/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn bg-btn-primary text-center py-2 rounded-lg text-white"
