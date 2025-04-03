@@ -14,7 +14,7 @@ const BountyBoard = () => {
 
   const getActiveBountyText = () => {
     if (activeSection === "big-bounty") return "Big Bounty: BountyBub's Bingo Board";
-    if (activeSection === "small-bounty") return "Small Bounty: Moose Murder Madness";
+    if (activeSection === "small-bounty") return "Small Bounty: A FOOL's Bounty";
     return "No Bounty Selected";
   };
 
@@ -46,7 +46,7 @@ const BountyBoard = () => {
       >
         {[
           { key: "big-bounty", label: "Big Bounty: BountyBub's Bingo Board" },
-          { key: "small-bounty", label: "Small Bounty: Moose Murder Madness" },,
+          { key: "small-bounty", label: "Small Bounty: A FOOL's Bounty" },,
           { key: "past-bounties", label: "Past Bounties & Rules: Join The Pub!" }
         ].map(({ key, label }) => (
           <motion.button
