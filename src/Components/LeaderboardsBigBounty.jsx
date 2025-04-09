@@ -3,7 +3,7 @@ import Papa from "papaparse";
 import { FaSync } from "react-icons/fa";
 
 const GOOGLE_SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?gid=598476423&single=true&output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEzNRqk49N_9-lthR7kYmpuZoNO43NbXyCo0yvg9qRIkJlYiEzwIlVE8OS2Y6Nk7wfsWeehWldlTgP/pub?output=csv";
 
 const LeaderboardsBigBounty = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -67,7 +67,7 @@ const LeaderboardsBigBounty = () => {
   return (
     <div className="bg-bg-dark p-4 rounded-md h-full overflow-hidden relative">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-2xl font-bold">Big Bounty: BountyBub's Bingo Board</h3>
+        <h3 className="text-2xl font-bold">Big Bounty: Execute Elemer 66</h3>
 
         <button
           onClick={fetchLeaderboardData}

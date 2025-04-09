@@ -26,14 +26,14 @@ const SmallBountyContent = () => {
             <div className="overflow-y-auto flex-grow mb-4 pr-2">
               <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
               <p className="mb-4">
-              Using a weapon that starts with 'A', kill bosses that start with the letters 'F', 2 'O's, and 'L'  in order! see rules below
+              Kill as many NPCs as you can within one hour! (No Merchant Kills) See rules below:
               </p>
 
               <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
               <ul className="space-y-2">
                 <li>📆 You will have 1 week to complete the bountie</li>
                 <li>
-                  📫 Submission deadline is: Saturday, April 5 at 12pm EST
+                  📫 Submission deadline is: Saturday, April 19 at 12pm EST
                 </li>
                 <li>❓ If you have any questions, please let us know</li>
               </ul>
@@ -42,7 +42,7 @@ const SmallBountyContent = () => {
             {/* Action Buttons with Links */}
             <div className="flex flex-col space-y-2">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSehmWQ_8ocNr535l2WzE2szK8PI3Q6Ex2s6x9jYoTCcR0QZnQ/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdnnVXwkbYH_-JlElLwMQjgeF_fink7HmPRwOiFJ6F4W1eJmA/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn bg-btn-primary text-center py-2 rounded-lg text-white"
