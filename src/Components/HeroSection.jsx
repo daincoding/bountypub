@@ -109,7 +109,6 @@ const HeroSection = () => {
           >
             Wall Of Fame
           </motion.button>
-
           <motion.button
             className="btn btn-small w-48 sm:w-auto"
             onClick={handleJoinPubClick}
