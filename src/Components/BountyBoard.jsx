@@ -13,8 +13,8 @@ const BountyBoard = () => {
   };
 
   const getActiveBountyText = () => {
-    if (activeSection === "big-bounty") return "Big Bounty: Execute Elemer 66";
-    if (activeSection === "small-bounty") return "Small Bounty: NPC Murder Spree Bounty";
+    if (activeSection === "big-bounty") return "Big Bounty: Rune Hoarder";
+    if (activeSection === "small-bounty") return "Small Bounty: Oops You Died Bounty";
     return "No Bounty Selected";
   };
 
@@ -45,8 +45,8 @@ const BountyBoard = () => {
         viewport={{ once: true, amount: 0.5 }}
       >
         {[
-          { key: "big-bounty", label: "Big Bounty: Execute Elemer 66 Bounty" },
-          { key: "small-bounty", label: "Small Bounty: NPC Murder Spree Bounty" },
+          { key: "big-bounty", label: "Big Bounty: Rune Hoarder" },
+          { key: "small-bounty", label: "Small Bounty: Oops You Died Bounty" },
           { key: "past-bounties", label: "Past Bounties & Rules: Join The Pub!" }
         ].map(({ key, label }) => (
           <motion.button
