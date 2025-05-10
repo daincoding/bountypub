@@ -3,9 +3,9 @@ import Papa from "papaparse";
 import { FaSync } from "react-icons/fa";
 
 const GOOGLE_SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vS9pxp46KcOLPmRjq38_Qv-7Q484srKWG96qUySYvVCg9IElmAwhKn4kLwMQW9YQYomDHebbmo_H6X5/pub?gid=2086780697&single=true&output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vT15ubfQ-hkr4d7d_TkNnqztjl5BfXAfJWb7Zx2I-iumZ6eBdUgLtFW-ICn2GcogGnr5eESRB9LtQFx/pub?gid=227640390&single=true&output=csv";
 
-const LeaderboardsBigBounty = () => {
+const LeaderboardRandomizerLeague = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,15 +38,15 @@ const LeaderboardsBigBounty = () => {
       .map((row) => ({
         Hunter: row["What is your Discord handle? (Not Nickname)"]?.trim(),
         Video: row["Please provide your YT video or Twitch highlight here"]?.trim(),
-        IGT: convertTimeToSeconds(row["What was your cumulative IGT?"]),
-        IGTFormatted: row["What was your cumulative IGT?"]?.trim(),
+        IGT: convertTimeToSeconds(row["What was your IGT?"]?.trim()),
+        IGTFormatted: row["What was your IGT?"]?.trim(),
       }))
       .filter((row) => row.Hunter && row.IGT !== Infinity)
-      .sort((a, b) => a.IGT - b.IGT); // Sort by fastest time
-  
+      .sort((a, b) => a.IGT - b.IGT);
+
     return formattedData;
   };
-  
+
   const convertTimeToSeconds = (timeString) => {
     if (!timeString) return Infinity;
     const timeParts = timeString.split(":").reverse();
@@ -67,7 +67,7 @@ const LeaderboardsBigBounty = () => {
   return (
     <div className="bg-bg-dark p-4 rounded-md h-full overflow-hidden relative">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-2xl font-bold">Big Bounty: Nightreign Release Bounty</h3>
+        <h3 className="text-2xl font-bold">League: Any% Randomizer</h3>
 
         <button
           onClick={fetchLeaderboardData}
@@ -109,7 +109,7 @@ const LeaderboardsBigBounty = () => {
                       "No Video"
                     )}
                   </td>
-                  <td className="p-2">{row.IGTFormatted.toLocaleString()}</td>
+                  <td className="p-2">{row.IGTFormatted}</td>
                 </tr>
               ))}
             </tbody>
@@ -124,49 +124,4 @@ const LeaderboardsBigBounty = () => {
   );
 };
 
-export default LeaderboardsBigBounty;
-
-/* 
-// 💾 Old IGT logic – saved here for reuse if needed:
-
-const sortLeaderboardData = (data) => {
-  const formattedData = data
-    .map((row) => ({
-      Hunter: row["What is your Discord handle? (Not Nickname)"]?.trim(),
-      Video: row["Please provide your YT video or Twitch highlight here"]?.trim(),
-      IGT: convertTimeToSeconds(row["What was your IGT?"]),
-      IGTFormatted: row["What was your IGT?"]?.trim(),
-    }))
-    .filter((row) => row.Hunter && row.IGT !== Infinity)
-    .sort((a, b) => a.IGT - b.IGT); // Sort by fastest time
-
-  return formattedData;
-};
-
-const convertTimeToSeconds = (timeString) => {
-  if (!timeString) return Infinity;
-  const timeParts = timeString.split(":").reverse();
-  let seconds = 0;
-  for (let i = 0; i < timeParts.length; i++) {
-    seconds += parseInt(timeParts[i], 10) * Math.pow(60, i);
-  }
-  return seconds;
-};
-
-
------------- Rune Formatted
-
-const sortLeaderboardData = (data) => {
-    const formattedData = data
-      .map((row) => ({
-        Hunter: row["What is your Discord handle? (Not Nickname)"]?.trim(),
-        Video: row["Please provide your YT video or Twitch highlight here"]?.trim(),
-        Runes: parseInt(row["What was your rune total?"], 10) || 0,
-      }))
-      .filter((row) => row.Hunter && row.Runes > 0)
-      .sort((a, b) => b.Runes - a.Runes); // Sort by most runes
-
-    return formattedData;
-  };
-
-*/
+export default LeaderboardRandomizerLeague;

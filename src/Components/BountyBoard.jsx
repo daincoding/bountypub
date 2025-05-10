@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BigBountyContent from "./BigBountyContent";
 import SmallBountyContent from "./SmallBountyContent";
+import RandomizerLeagueContent from "./RandomizerLeagueContent";
 import SmallBountyContent2 from "./SmallBountyContent2"; // New component for the second small bounty
 import { FaArrowUp } from "react-icons/fa"; 
 import { motion } from "framer-motion";
@@ -13,8 +14,9 @@ const BountyBoard = () => {
   };
 
   const getActiveBountyText = () => {
-    if (activeSection === "big-bounty") return "Big Bounty: Rune Hoarder";
+    if (activeSection === "big-bounty") return "Big Bounty: Nightreign Release Bounty";
     if (activeSection === "small-bounty") return "Small Bounty: Oops You Died Bounty";
+    if (activeSection === "randomizer-league") return "League: Any% Randomizer League May";
     return "No Bounty Selected";
   };
 
@@ -45,8 +47,9 @@ const BountyBoard = () => {
         viewport={{ once: true, amount: 0.5 }}
       >
         {[
-          { key: "big-bounty", label: "Big Bounty: Rune Hoarder" },
+          { key: "big-bounty", label: "Big Bounty: Nightreign Release Bounty" },
           { key: "small-bounty", label: "Small Bounty: Oops You Died Bounty" },
+          { key: "randomizer-league", label: "Any% Randomizer League [May]" },
           { key: "past-bounties", label: "Past Bounties & Rules: Join The Pub!" }
         ].map(({ key, label }) => (
           <motion.button
@@ -102,6 +105,7 @@ const BountyBoard = () => {
       >
         {activeSection === "big-bounty" && <BigBountyContent />}
         {activeSection === "small-bounty" && <SmallBountyContent />}
+        {activeSection === "randomizer-league" && <RandomizerLeagueContent />}
       </motion.div>
     </section>
   );

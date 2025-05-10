@@ -1,8 +1,8 @@
 import React from "react";
-import LeaderboardsBigBounty from "./LeaderboardsBigBounty";
+import LeaderboardRandomizerLeague from "./LeaderboardRandomizerLeague";
 import { motion, AnimatePresence } from "framer-motion";
 
-const BigBountyContent = () => {
+const RandomizerLeagueContent = () => {
   return (
     <AnimatePresence>
       <motion.div
@@ -26,29 +26,26 @@ const BigBountyContent = () => {
             <div className="overflow-y-auto flex-grow mb-4 pr-2">
               <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
               <p className="mb-4">
-              Complete 3 of the 6 class questlines back to back as fast as you possibly can!
-  See rules below!
+              Complete the Any% Randomizer as quickly as you can! See rules below
               </p>
 
               <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
               <ul className="space-y-2">
-                <li>📆 You will have 2 weeks to complete the bounties</li>
-                <li>
-                  📫 Submissions are due Thursday, May 29 at 12am EST
-                </li>
-                <li>❓ If you have any questions, please let us know</li>
+                <li>📆 You will have the whole month to submit your best time</li>
+                <li>📫 Submission deadline is: Wednesday, May 28 at 12pm EST</li>
+                <li>🏆 Fastest times will rise to the top!</li>
               </ul>
             </div>
 
-            {/* Action Buttons with Links */}
+            {/* Action Buttons */}
             <div className="flex flex-col space-y-2">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSf5IfSmAcla2MmoKXzvURNxoXBDbr5ud_cDYCiQ69yUmPQ_pA/viewform"
+                href="https://forms.gle/XTd4baYLQawTduB19"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn bg-btn-primary text-center py-2 rounded-lg text-white"
               >
-                Rules & Submission
+                Submit Your League Run
               </a>
               <a
                 href="https://discord.gg/45wubE8bBH"
@@ -72,8 +69,8 @@ const BigBountyContent = () => {
               boxSizing: "border-box",
             }}
           >
-            <h3 className="text-2xl font-bold mb-2">Leaderboard</h3>
-            <LeaderboardsBigBounty />
+            <h3 className="text-2xl font-bold mb-2">League Leaderboard</h3>
+            <LeaderboardRandomizerLeague />
           </div>
         </div>
       </motion.div>
@@ -81,4 +78,4 @@ const BigBountyContent = () => {
   );
 };
 
-export default BigBountyContent;
+export default RandomizerLeagueContent;
