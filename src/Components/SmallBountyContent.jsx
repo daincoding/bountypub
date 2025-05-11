@@ -26,14 +26,14 @@ const SmallBountyContent = () => {
             <div className="overflow-y-auto flex-grow mb-4 pr-2">
               <h3 className="text-2xl font-bold mt-6 mb-4">⚔️ Objective</h3>
               <p className="mb-4">
-              Make a clip of your funniest/most shocking/jaw dropping death! See rules below:
+              Kill 8 bosses without dying (DS1, DS2, DS3) or all Liurnia bosses (ER) using only your starting class equipment! See rules below:
               </p>
 
               <h3 className="text-2xl font-bold mb-4">📜 General Info</h3>
               <ul className="space-y-2">
                 <li>📆 You will have 2 week to complete the bountie</li>
                 <li>
-                  📫 Submission deadline is: Saturday, May 3 at 12pm EST
+                  📫 Submission deadline is: Saturday, May 28 at 12pm EST
                 </li>
                 <li>❓ If you have any questions, please let us know</li>
               </ul>
@@ -42,7 +42,7 @@ const SmallBountyContent = () => {
             {/* Action Buttons with Links */}
             <div className="flex flex-col space-y-2">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdY7NOx6mVnyHCjrKOF4GoAfActspMme1D6KFh_xfWoQAHR5A/viewform"
+                href="https://forms.gle/o1ELtMKDH11UAvcB7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn bg-btn-primary text-center py-2 rounded-lg text-white"

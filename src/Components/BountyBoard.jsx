@@ -15,7 +15,7 @@ const BountyBoard = () => {
 
   const getActiveBountyText = () => {
     if (activeSection === "big-bounty") return "Big Bounty: Nightreign Release Bounty";
-    if (activeSection === "small-bounty") return "Small Bounty: Oops You Died Bounty";
+    if (activeSection === "small-bounty") return "Small Bounty: Starting Class Only Bounty";
     if (activeSection === "randomizer-league") return "League: Any% Randomizer League May";
     return "No Bounty Selected";
   };
@@ -48,7 +48,7 @@ const BountyBoard = () => {
       >
         {[
           { key: "big-bounty", label: "Big Bounty: Nightreign Release Bounty" },
-          { key: "small-bounty", label: "Small Bounty: Oops You Died Bounty" },
+          { key: "small-bounty", label: "Small Bounty: Starting Class Only Bounty" },
           { key: "randomizer-league", label: "Any% Randomizer League [May]" },
           { key: "past-bounties", label: "Past Bounties & Rules: Join The Pub!" }
         ].map(({ key, label }) => (
